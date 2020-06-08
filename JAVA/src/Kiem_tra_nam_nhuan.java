@@ -5,18 +5,25 @@ public class Kiem_tra_nam_nhuan {
         int year;
         System.out.println("Nhap so nam:");
         year = scanner.nextInt();
-        if(year%4==0){
-            if(year%100==0){
-                if(year%400==0){
-                    System.out.printf("%d la nam nhuan duong", year);
-                } else {
-                    System.out.printf("%d khong phai la nam nhuan duong", year);
+
+        boolean isLeapYear = false;
+        boolean isDivisibleBy4 = year % 4 == 0;
+        if(isDivisibleBy4){
+            boolean isDivisibleBy100 = year % 100 == 0;
+            if(isDivisibleBy100){
+                boolean isDivisibleBy400 = year % 400 == 0;
+                if(isDivisibleBy400){
+                    isLeapYear = true;
                 }
             } else {
-                System.out.printf("%d la nam nhuan duong", year);
+                isLeapYear = true;
             }
+        }
+
+        if(isLeapYear){
+            System.out.printf("%d la nam nhuan duong", year);
         } else {
-            System.out.printf("%d khong phai la nam nhuan duong", year);
+            System.out.printf("%d khong la nam nhuan duong", year);
         }
     }
 }
