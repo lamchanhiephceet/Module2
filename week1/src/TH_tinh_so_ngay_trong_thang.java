@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 public class TH_tinh_so_ngay_trong_thang {
     public static void main(String[] args) {

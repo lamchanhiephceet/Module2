@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 public class TH_sd_toan_tu {
     public static void main(String[] args) {

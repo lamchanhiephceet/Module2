@@ -7,6 +7,6 @@ public class Chuyen_doi_tien {
         usd = scanner.nextInt();
 
         cash = usd*vnd;
-        System.out.printf( cash+ "VND");
+        System.out.print( cash + "VND");
     }
 }
