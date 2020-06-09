@@ -37,7 +37,7 @@ public class Hien_thi_cac_loai_hinh {
                 }
                 break;
             case 4:
-                for (int i=1; i<10; i += 2)
+                for (int i=1; i<8; i += 2)
                 {
                     for (int k=0; k < (4 - i / 2); k++)
                     {
