@@ -21,31 +21,35 @@ public class StopWatch {
         getEndTime(endTime);
     }
     public void getElapsedTime() {
-        int ElapsedTime = (startTime.toSecondOfDay() - endTime.toSecondOfDay()*100);
+        int ElapsedTime = ((endTime.getHour()-startTime.getHour())*3600 + (endTime.getMinute()-startTime.getMinute())*60 + (endTime.getSecond()-startTime.getSecond())*1000);
         System.out.println("So mili giay dem duoc: " +ElapsedTime);
     }
-    public static void sortSelect(long[] array) {
-        for (long i = 0; i < array.length - 1; i++) {
-            long minIndex = i;
-            for (long j = i + 1; j < array.length; j++) {
-                if (array[(int) j] < array[(int) minIndex]) {
-                    minIndex = j;
+
+    public static int[] selectionSort(int...a) {
+        for(int i=0;i<a.length-1;i++){
+            for(int j=i+1;j<a.length;j++) {
+                if(a[j]<a[i]) {
+                    int temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
                 }
             }
-            swap(array, i, minIndex);
         }
-    }
-    public static void swap(long[] array, long a, long b) {
-        long temp = array[(int) a];
-        array[(int) a] = array[(int) b];
-        array[(int) b] = temp;
+        return a;
     }
 
     public static void main(String[] args) {
+        int []a = new int [100000];
+        for (int i = 0; i < 100000; i++) {
+            a[i]=(int)(Math.random()*100000);
+        }
+
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         System.out.println("Dang dem thoi gian");
-        for(int i=1;i<=100000;i++) {
+        a = selectionSort(a);
+        for(int x : a) {
+            System.out.println(x);
         }
             stopWatch.stop();
             stopWatch.getElapsedTime();
