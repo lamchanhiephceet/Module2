@@ -21,7 +21,7 @@ public class StopWatch {
         getEndTime(endTime);
     }
     public void getElapsedTime() {
-        int ElapsedTime = ((endTime.getHour()-startTime.getHour())*3600 + (endTime.getMinute()-startTime.getMinute())*60 + (endTime.getSecond()-startTime.getSecond())*1000);
+        int ElapsedTime = ((endTime.getHour()-startTime.getHour())*3600000 + (endTime.getMinute()-startTime.getMinute())*60000 + (endTime.getSecond()-startTime.getSecond())*1000);
         System.out.println("So mili giay dem duoc: " +ElapsedTime);
     }
 
@@ -41,12 +41,12 @@ public class StopWatch {
     public static void main(String[] args) {
         int []a = new int [100000];
         for (int i = 0; i < 100000; i++) {
-            a[i]=(int)(Math.random()*100000);
+            a[i]=(int)Math.floor(Math.random()*100000);
         }
 
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
-        System.out.println("Dang dem thoi gian");
+        System.out.println("Dang dem thoi gian...");
         a = selectionSort(a);
         for(int x : a) {
             System.out.println(x);
